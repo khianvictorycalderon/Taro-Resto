@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="icons/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="assets/tailwind-3.4.17.js"></script>
+    <title>Taro Resto</title>
+    <style>
+      :root{
+        --navy: #0B2A3D;
+        --navy-deep: #081E2C;
+        --ocean: #1C6E8C;
+        --ocean-light: #4FA8C7;
+        --foam: #EEF5F5;
+        --sand: #FAF8F3;
+        --ink: #142229;
+        --slate: #55707C;
+        --line: #DCE6E5;
+      }
+      html { scroll-behavior: smooth; }
+      body { background: var(--sand); color: var(--ink); font-family: 'Inter', sans-serif; }
+      .font-display { font-family: 'Fraunces', serif; font-optical-sizing: auto; }
+      .scrollbar-hide::-webkit-scrollbar { display: none; }
+      .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+
+    <script>
+        alert("NOTE: Taro Resto is a fictional project and does not intends to represent a real business. Any similarities to real business is purely co-incidental.");
+    </script>
+  </head>
+
+  <body>
+
+    <!--================================================================-->
+    <!-- Navbar -->
+    <!--================================================================-->
+
+    <!-- Pure-CSS toggle for the mobile drawer (no JS needed to open/close) -->
+    <input type="checkbox" id="nav-toggle" class="hidden peer" />
+
+    <nav
+        class="
+            fixed top-0 left-0 w-full
+            z-30
+            px-4 md:px-8 lg:px-32
+            py-3
+            flex justify-between items-center
+            bg-[var(--navy)]
+            border-b border-white/10
+        "
+    >
+
+        <div class="flex items-center gap-3 relative z-10">
+            <div class="w-9 h-9 shrink-0 rounded-full overflow-hidden ring-1 ring-white/20">
+                <img src="icons/logo.png" alt="Logo" class="w-full h-full object-cover" />
+            </div>
+            <div class="text-sm lg:text-base text-white font-display font-semibold tracking-wide">Taro Resto</div>
+        </div>
+
+        <div class="hidden lg:flex items-center gap-1 relative z-10">
+            <a href="#hero" class="cursor-pointer text-sm px-4 py-2 rounded-full text-white/75 transition-colors hover:text-white hover:bg-white/10">Home</a>
+            <a href="#bestmenu" class="cursor-pointer text-sm px-4 py-2 rounded-full text-white/75 transition-colors hover:text-white hover:bg-white/10">Best Seller</a>
+            <a href="#menu" class="cursor-pointer text-sm px-4 py-2 rounded-full text-white/75 transition-colors hover:text-white hover:bg-white/10">Menu</a>
+            <a href="#about" class="cursor-pointer text-sm px-4 py-2 rounded-full text-white/75 transition-colors hover:text-white hover:bg-white/10">About Us</a>
+            <a href="#contact" class="cursor-pointer text-sm px-4 py-2 rounded-full text-white/75 transition-colors hover:text-white hover:bg-white/10">Contact Us</a>
+            <a href="#contact" class="cursor-pointer ml-3 text-sm font-medium px-4 py-2 rounded-full bg-[var(--ocean)] text-white transition-colors hover:bg-[var(--ocean-light)]">Reserve a Table</a>
+        </div>
+
+        <label
+            for="nav-toggle"
+            class="lg:hidden text-white/80 hover:text-white transition-colors relative z-10 cursor-pointer"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 6h18M3 12h18M3 18h18" />
+            </svg>
+        </label>
+    </nav>
+
+    <!-- Backdrop: clicking it (a label for the same checkbox) closes the drawer -->
+    <label
+        for="nav-toggle"
+        aria-hidden="true"
+        class="hidden peer-checked:block fixed inset-0 bg-black/60 z-40 lg:hidden"
+    ></label>
+
+    <div
+        class="
+            fixed top-0 right-0 h-full w-72
+            z-50 lg:hidden
+            bg-[var(--navy)]
+            border-l border-white/10
+            transform transition-transform duration-300
+            translate-x-full peer-checked:translate-x-0
+        "
+    >
+        <div class="flex justify-between items-center px-6 py-4 border-b border-white/10">
+            <span class="text-white font-display text-sm">Menu</span>
+            <label for="nav-toggle" class="text-white/70 hover:text-white cursor-pointer transition-colors">→</label>
+        </div>
+
+        <div class="flex flex-col mt-2">
+            <a href="#hero" class="cursor-pointer text-left px-6 py-4 text-white/75 hover:text-white hover:bg-white/10 border-l-2 border-transparent hover:border-[var(--ocean-light)] transition-colors">Home</a>
+            <a href="#bestmenu" class="cursor-pointer text-left px-6 py-4 text-white/75 hover:text-white hover:bg-white/10 border-l-2 border-transparent hover:border-[var(--ocean-light)] transition-colors">Best Seller</a>
+            <a href="#menu" class="cursor-pointer text-left px-6 py-4 text-white/75 hover:text-white hover:bg-white/10 border-l-2 border-transparent hover:border-[var(--ocean-light)] transition-colors">Menu</a>
+            <a href="#about" class="cursor-pointer text-left px-6 py-4 text-white/75 hover:text-white hover:bg-white/10 border-l-2 border-transparent hover:border-[var(--ocean-light)] transition-colors">About Us</a>
+            <a href="#contact" class="cursor-pointer text-left px-6 py-4 text-white/75 hover:text-white hover:bg-white/10 border-l-2 border-transparent hover:border-[var(--ocean-light)] transition-colors">Contact Us</a>
+        </div>
+    </div>
+
+    <script>
+        // Dynamic behavior only: close the mobile drawer after a link is tapped
+        document.querySelectorAll('#nav-toggle').forEach((cb) => {
+            document.querySelectorAll('div.fixed.top-0.right-0 a').forEach((link) => {
+                link.addEventListener('click', () => { cb.checked = false; });
+            });
+        });
+    </script>
+
+    <!--================================================================-->
+    <!-- Hero Section -->
+    <!--================================================================-->
+    <section
+        id="hero"
+        class="min-h-screen scroll-mt-20 relative overflow-hidden bg-[var(--navy)] bg-cover bg-center flex items-center"
+        style="background-image: linear-gradient(100deg, rgba(8,30,44,0.94) 0%, rgba(8,30,44,0.80) 40%, rgba(8,30,44,0.35) 75%, rgba(8,30,44,0.15) 100%), url('images/hero-bg.jpg');"
+    >
+        <div class="w-full px-5 sm:px-6 md:px-10 lg:px-32 pt-16 pb-16 md:pt-20">
+            <div class="max-w-xl">
+                <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.08] text-white mb-6">
+                    Straight from the boat,
+                    <span class="text-[var(--ocean-light)]">to your table.</span>
+                </h1>
+ 
+                <p class="text-base md:text-lg text-white/80 leading-relaxed mb-9 max-w-md">
+                    Taro Resto brings the day's catch off the docks and into a wood-fired kitchen, grilled, cured, and plated simply, so the ocean does the talking.
+                </p>
+ 
+                <div class="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
+                    <a href="#menu" class="cursor-pointer w-full sm:w-auto bg-[var(--ocean)] text-white text-sm font-medium px-6 py-3 rounded-md text-center transition-colors hover:bg-[var(--ocean-light)]">
+                        View Menu
+                    </a>
+                    <a href="#contact" class="cursor-pointer w-full sm:w-auto text-sm font-medium px-6 py-3 rounded-md text-center text-white border border-white/30 transition-colors hover:bg-white/10">
+                        Reserve a Table
+                    </a>
+                </div>
+ 
+                <div class="flex items-center gap-2 mt-8">
+                    <span class="relative flex h-2 w-2 shrink-0">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--ocean-light)] opacity-60"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-[var(--ocean-light)]"></span>
+                    </span>
+                    <span class="text-sm text-white/70">Open today · 11am - 10pm</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--================================================================-->
+    <!-- Best Seller Section -->
+    <!--================================================================-->
+    <section
+        id="bestmenu"
+        class="scroll-mt-20 bg-[var(--foam)] border-t border-[var(--line)] py-16 md:py-24 lg:py-28 px-5 sm:px-6 md:px-10 lg:px-32"
+    >
+        <div class="max-w-2xl mb-10 md:mb-14">
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.1] text-[var(--navy)]">
+                What everyone <span class="text-[var(--ocean)]">keeps ordering.</span>
+            </h2>
+            <p class="text-sm sm:text-base text-[var(--slate)] leading-relaxed mt-4 max-w-lg">
+                Three dishes our regulars order on repeat: the ones we'd put in front of a first-time guest.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <div class="group bg-white rounded-lg overflow-hidden border border-[var(--line)] transition-shadow hover:shadow-md">
+                <div class="aspect-[4/3] overflow-hidden">
+                    <img src="images/best-menu-1.png" alt="Charred octopus with chili oil" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                </div>
+                <div class="p-5 sm:p-6">
+                    <span class="inline-block text-[11px] font-medium text-[var(--ocean)] bg-[var(--foam)] rounded-full px-2.5 py-1 mb-3">Guest favorite</span>
+                    <div class="flex items-baseline justify-between gap-3">
+                        <h3 class="font-display text-lg text-[var(--navy)]">Charred Octopus</h3>
+                        <span class="text-sm font-medium text-[var(--navy)] shrink-0">$19</span>
+                    </div>
+                    <p class="text-sm text-[var(--slate)] leading-relaxed mt-2">Chili oil, crispy potato, preserved lemon.</p>
+                </div>
+            </div>
+
+            <div class="group bg-white rounded-lg overflow-hidden border border-[var(--line)] transition-shadow hover:shadow-md">
+                <div class="aspect-[4/3] overflow-hidden">
+                    <img src="images/best-menu-2.png" alt="Butter-poached lobster roll" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                </div>
+                <div class="p-5 sm:p-6">
+                    <span class="inline-block text-[11px] font-medium text-[var(--ocean)] bg-[var(--foam)] rounded-full px-2.5 py-1 mb-3">Guest favorite</span>
+                    <div class="flex items-baseline justify-between gap-3">
+                        <h3 class="font-display text-lg text-[var(--navy)]">Butter-Poached Lobster Roll</h3>
+                        <span class="text-sm font-medium text-[var(--navy)] shrink-0">$28</span>
+                    </div>
+                    <p class="text-sm text-[var(--slate)] leading-relaxed mt-2">Toasted brioche, herb butter, chive.</p>
+                </div>
+            </div>
+
+            <div class="group bg-white rounded-lg overflow-hidden border border-[var(--line)] transition-shadow hover:shadow-md">
+                <div class="aspect-[4/3] overflow-hidden">
+                    <img src="images/best-menu-3.png" alt="Miso glazed black cod" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                </div>
+                <div class="p-5 sm:p-6">
+                    <span class="inline-block text-[11px] font-medium text-[var(--ocean)] bg-[var(--foam)] rounded-full px-2.5 py-1 mb-3">Guest favorite</span>
+                    <div class="flex items-baseline justify-between gap-3">
+                        <h3 class="font-display text-lg text-[var(--navy)]">Miso Black Cod</h3>
+                        <span class="text-sm font-medium text-[var(--navy)] shrink-0">$34</span>
+                    </div>
+                    <p class="text-sm text-[var(--slate)] leading-relaxed mt-2">Grilled, ginger glaze, charred bok choy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--================================================================-->
+    <!-- Menu Section -->
+    <!--================================================================-->
+    <section
+        id="menu"
+        class="scroll-mt-20 bg-[var(--sand)] border-t border-[var(--line)] py-16 md:py-24 lg:py-28 px-5 sm:px-6 md:px-10 lg:px-32"
+    >
+        <div class="max-w-2xl mb-10 md:mb-14">
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.1] text-[var(--navy)]">
+                The full <span class="text-[var(--ocean)]">menu.</span>
+            </h2>
+            <p class="text-sm sm:text-base text-[var(--slate)] leading-relaxed mt-4 max-w-lg">
+                Everything is sourced within a day of the boat coming in, so what's listed here is what's actually fresh.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 md:gap-y-10">
+            <div class="flex gap-4">
+                <div class="w-20 h-20 rounded-md overflow-hidden border border-[var(--line)]">
+                    <img src="images/menu-1.png" alt="Oysters on the half shell" class="w-full h-full object-cover" />
+                </div>
+                <div class="min-w-0 flex-1">
+                    <div class="flex items-baseline gap-3">
+                        <span class="font-display text-lg text-[var(--navy)]">Oysters on the Half Shell</span>
+                        <span aria-hidden="true" class="flex-1 border-b border-dotted border-[var(--line)] translate-y-[-3px]"></span>
+                        <span class="text-sm font-medium text-[var(--navy)]">$18</span>
+                    </div>
+                    <p class="text-sm text-[var(--slate)] leading-relaxed mt-1.5 max-w-md">Half dozen, mignonette, lemon.</p>
+                    <div class="flex flex-wrap gap-2 mt-2.5">
+                        <span class="text-[11px] text-[var(--ocean)] border border-[var(--line)] rounded-md px-2 py-0.5">GF</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-4">
+                <div class="w-20 h-20 rounded-md overflow-hidden border border-[var(--line)]">
+                    <img src="images/menu-2.png" alt="New England clam chowder" class="w-full h-full object-cover" />
+                </div>
+                <div class="min-w-0 flex-1">
+                    <div class="flex items-baseline gap-3">
+                        <span class="font-display text-lg text-[var(--navy)]">Clam Chowder</span>
+                        <span aria-hidden="true" class="flex-1 border-b border-dotted border-[var(--line)] translate-y-[-3px]"></span>
+                        <span class="text-sm font-medium text-[var(--navy)]">$12</span>
+                    </div>
+                    <p class="text-sm text-[var(--slate)] leading-relaxed mt-1.5 max-w-md">Clams, cream, sourdough crouton.</p>
+                </div>
+            </div>
+
+            <div class="flex gap-4">
+                <div class="w-20 h-20 rounded-md overflow-hidden border border-[var(--line)]">
+                    <img src="images/menu-3.png" alt="Charred octopus" class="w-full h-full object-cover" />
+                </div>
+                <div class="min-w-0 flex-1">
+                    <div class="flex items-baseline gap-3">
+                        <span class="font-display text-lg text-[var(--navy)]">Charred Octopus</span>
+                        <span aria-hidden="true" class="flex-1 border-b border-dotted border-[var(--line)] translate-y-[-3px]"></span>
+                        <span class="text-sm font-medium text-[var(--navy)]">$19</span>
+                    </div>
+                    <p class="text-sm text-[var(--slate)] leading-relaxed mt-1.5 max-w-md">Chili oil, crispy potato, preserved lemon.</p>
+                    <div class="flex flex-wrap gap-2 mt-2.5">
+                        <span class="text-[11px] text-[var(--ocean)] border border-[var(--line)] rounded-md px-2 py-0.5">GF</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-4">
+                <div class="w-20 h-20 rounded-md overflow-hidden border border-[var(--line)]">
+                    <img src="images/menu-4.png" alt="Butter-poached lobster roll" class="w-full h-full object-cover" />
+                </div>
+                <div class="min-w-0 flex-1">
+                    <div class="flex items-baseline gap-3">
+                        <span class="font-display text-md text-[var(--navy)]">Butter-Poached Lobster Roll</span>
+                        <span aria-hidden="true" class="flex-1 border-b border-dotted border-[var(--line)] translate-y-[-3px]"></span>
+                        <span class="text-sm font-medium text-[var(--navy)]">$28</span>
+                    </div>
+                    <p class="text-sm text-[var(--slate)] leading-relaxed mt-1.5 max-w-md">Toasted brioche, herb butter, chive.</p>
+                </div>
+            </div>
+
+            <div class="flex gap-4">
+                <div class="w-20 h-20 rounded-md overflow-hidden border border-[var(--line)]">
+                    <img src="images/menu-5.png" alt="Miso glazed black cod" class="w-full h-full object-cover" />
+                </div>
+                <div class="min-w-0 flex-1">
+                    <div class="flex items-baseline gap-3">
+                        <span class="font-display text-lg text-[var(--navy)]">Miso Black Cod</span>
+                        <span aria-hidden="true" class="flex-1 border-b border-dotted border-[var(--line)] translate-y-[-3px]"></span>
+                        <span class="text-sm font-medium text-[var(--navy)]">$34</span>
+                    </div>
+                    <p class="text-sm text-[var(--slate)] leading-relaxed mt-1.5 max-w-md">Grilled, ginger glaze, charred bok choy.</p>
+                    <div class="flex flex-wrap gap-2 mt-2.5">
+                        <span class="text-[11px] text-[var(--ocean)] border border-[var(--line)] rounded-md px-2 py-0.5">GF</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-4">
+                <div class="w-20 h-20 rounded-md overflow-hidden border border-[var(--line)]">
+                    <img src="images/menu-6.png" alt="Grilled whole branzino" class="w-full h-full object-cover" />
+                </div>
+                <div class="min-w-0 flex-1">
+                    <div class="flex items-baseline gap-3">
+                        <span class="font-display text-lg text-[var(--navy)]">Grilled Whole Branzino</span>
+                        <span aria-hidden="true" class="flex-1 border-b border-dotted border-[var(--line)] translate-y-[-3px]"></span>
+                        <span class="text-sm font-medium text-[var(--navy)]">$36</span>
+                    </div>
+                    <p class="text-sm text-[var(--slate)] leading-relaxed mt-1.5 max-w-md">Salsa verde, lemon, sea salt.</p>
+                    <div class="flex flex-wrap gap-2 mt-2.5">
+                        <span class="text-[11px] text-[var(--ocean)] border border-[var(--line)] rounded-md px-2 py-0.5">GF</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--================================================================-->
+    <!-- About Section -->
+    <!--================================================================-->
+    <section
+        id="about"
+        class="scroll-mt-20 bg-[var(--foam)] border-t border-[var(--line)] py-16 md:py-24 lg:py-28 px-5 sm:px-6 md:px-10 lg:px-32"
+    >
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.1] text-[var(--navy)] mb-6">
+                    Built by people <span class="text-[var(--ocean)]">who fish.</span>
+                </h2>
+
+                <div class="space-y-4 mb-8 max-w-lg">
+                    <p class="text-sm sm:text-base text-[var(--slate)] leading-relaxed">Taro Resto opened in 2011 as a single counter behind a fish market, run by a family who'd spent three generations on boats before they ever ran a kitchen. The menu still follows the same rule it did on day one: cook what came in today.</p>
+                    <p class="text-sm sm:text-base text-[var(--slate)] leading-relaxed">We work directly with a handful of local boats, which means smaller catches, shorter menus some weeks, and seafood that never sat in a freezer.</p>
+                </div>
+
+                <div class="grid grid-cols-3 gap-6 sm:gap-8 pt-6 border-t border-[var(--line)] max-w-lg">
+                    <div>
+                        <p class="font-display text-2xl sm:text-3xl text-[var(--navy)]">15+</p>
+                        <p class="text-xs sm:text-sm text-[var(--slate)] mt-1">Years open</p>
+                    </div>
+                    <div>
+                        <p class="font-display text-2xl sm:text-3xl text-[var(--navy)]">6</p>
+                        <p class="text-xs sm:text-sm text-[var(--slate)] mt-1">Local boats we buy from</p>
+                    </div>
+                    <div>
+                        <p class="font-display text-2xl sm:text-3xl text-[var(--navy)]">2</p>
+                        <p class="text-xs sm:text-sm text-[var(--slate)] mt-1">Freezers in the kitchen</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hidden lg:block relative">
+                <div class="rounded-lg overflow-hidden border border-[var(--line)] aspect-[4/5]">
+                    <img src="images/about.jpg" alt="Taro Resto kitchen preparing the day's catch" class="w-full h-full object-cover" />
+                </div>
+
+                <div class="absolute -bottom-8 -right-8 max-w-xs bg-white border border-[var(--line)] rounded-lg shadow-sm p-6">
+                    <span aria-hidden="true" class="font-display text-4xl text-[var(--ocean-light)] leading-none">"</span>
+                    <p class="text-sm text-[var(--ink)] leading-relaxed -mt-2">You can taste that it was caught yesterday, not shipped in. Best seafood spot in the neighborhood, hands down.</p>
+                    <p class="text-xs text-[var(--slate)] mt-3">
+                        <span class="font-medium text-[var(--navy)]">Maria Santos</span> · Regular guest
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--================================================================-->
+    <!-- Contact Section -->
+    <!--================================================================-->
+    <section
+        id="contact"
+        class="scroll-mt-20 bg-[var(--sand)] border-t border-[var(--line)] py-16 md:py-24 lg:py-28 px-5 sm:px-6 md:px-10 lg:px-32"
+    >
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+            <div>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.1] text-[var(--navy)] mb-6">
+                    Let's start a <span class="text-[var(--ocean)]">conversation.</span>
+                </h2>
+
+                <p class="text-sm sm:text-base text-[var(--slate)] leading-relaxed mb-9 max-w-md">Have a question or ready to book a table? Fill out the form and we'll get back to you within one business day.</p>
+
+                <div class="space-y-5 max-w-md">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-md bg-[var(--foam)] text-[var(--ocean)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                            </svg>
+                        </div>
+                        <div class="min-w-0">
+                            <p class="text-xs uppercase tracking-wide text-[var(--slate)] mb-0.5">Location</p>
+                            <p class="text-sm font-medium text-[var(--navy)] break-words">48 Market Street, Suite 210, Springfield</p>
+                        </div>
+                    </div>
+
+                    <a href="tel:+15550123456" class="block transition-opacity hover:opacity-70">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-md bg-[var(--foam)] text-[var(--ocean)]">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106a1.125 1.125 0 00-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97a1.125 1.125 0 00.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                                </svg>
+                            </div>
+                            <div class="min-w-0">
+                                <p class="text-xs uppercase tracking-wide text-[var(--slate)] mb-0.5">Phone</p>
+                                <p class="text-sm font-medium text-[var(--navy)] break-words">(555) 012-3456</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="mailto:hello@example.com" class="block transition-opacity hover:opacity-70">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-md bg-[var(--foam)] text-[var(--ocean)]">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0a2.25 2.25 0 00-2.25-2.25h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                                </svg>
+                            </div>
+                            <div class="min-w-0">
+                                <p class="text-xs uppercase tracking-wide text-[var(--slate)] mb-0.5">Email</p>
+                                <p class="text-sm font-medium text-[var(--navy)] break-words">hello@example.com</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 shrink-0 flex items-center justify-center rounded-md bg-[var(--foam)] text-[var(--ocean)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="min-w-0">
+                            <p class="text-xs uppercase tracking-wide text-[var(--slate)] mb-0.5">Hours</p>
+                            <p class="text-sm font-medium text-[var(--navy)] break-words">Mon-Sun, 11am - 10pm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <!-- Point this at your CMS/backend form-handling endpoint -->
+                <form id="contact-form" action="#" method="POST" class="rounded-lg border border-[var(--line)] bg-white p-6 sm:p-8 space-y-5">
+                    <div>
+                        <label for="name" class="block text-xs uppercase tracking-wide text-[var(--slate)] mb-2">Name</label>
+                        <input id="name" name="name" type="text" required placeholder="Your full name"
+                            class="w-full text-sm px-4 py-3 rounded-md bg-[var(--sand)] border border-[var(--line)] text-[var(--ink)] placeholder:text-[var(--slate)]/60 outline-none transition-colors focus:border-[var(--ocean)]" />
+                    </div>
+                    <div>
+                        <label for="email" class="block text-xs uppercase tracking-wide text-[var(--slate)] mb-2">Email</label>
+                        <input id="email" name="email" type="email" required placeholder="you@example.com"
+                            class="w-full text-sm px-4 py-3 rounded-md bg-[var(--sand)] border border-[var(--line)] text-[var(--ink)] placeholder:text-[var(--slate)]/60 outline-none transition-colors focus:border-[var(--ocean)]" />
+                    </div>
+                    <div>
+                        <label for="message" class="block text-xs uppercase tracking-wide text-[var(--slate)] mb-2">Message</label>
+                        <textarea id="message" name="message" required rows="5" placeholder="Tell us a bit about what you need..."
+                            class="w-full text-sm px-4 py-3 rounded-md bg-[var(--sand)] border border-[var(--line)] text-[var(--ink)] placeholder:text-[var(--slate)]/60 outline-none resize-none transition-colors focus:border-[var(--ocean)]"></textarea>
+                    </div>
+                    <button type="submit" class="cursor-pointer w-full bg-[var(--ocean)] text-white text-sm font-medium px-6 py-3 rounded-md transition-colors hover:bg-[var(--ocean-light)]">
+                        Send Message
+                    </button>
+                </form>
+
+                <div id="contact-success" class="hidden h-full flex-col items-center justify-center text-center rounded-lg border border-[var(--line)] bg-white p-10 min-h-[22rem]">
+                    <div class="w-12 h-12 rounded-full bg-[var(--foam)] flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-[var(--ocean)]">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl text-[var(--navy)] mb-2">Message sent</h3>
+                    <p class="text-sm text-[var(--slate)] max-w-xs">Thanks for reaching out: we'll be in touch within one business day.</p>
+                    <button type="button" id="contact-reset" class="cursor-pointer mt-6 text-sm font-medium text-[var(--ocean)] hover:text-[var(--navy)] underline underline-offset-4">
+                        Send another message
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Dynamic behavior only: swap the static form for the static success panel.
+        // Replace this with a real fetch() to your CMS/backend endpoint when ready.
+        (function () {
+            const form = document.getElementById('contact-form');
+            const success = document.getElementById('contact-success');
+            const reset = document.getElementById('contact-reset');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                console.log('Contact form submitted:', Object.fromEntries(new FormData(form)));
+                form.classList.add('hidden');
+                success.classList.remove('hidden');
+                success.classList.add('flex');
+                form.reset();
+            });
+
+            reset.addEventListener('click', () => {
+                success.classList.add('hidden');
+                success.classList.remove('flex');
+                form.classList.remove('hidden');
+            });
+        })();
+    </script>
+
+    <!--================================================================-->
+    <!-- Footer -->
+    <!--================================================================-->
+    <footer class="relative overflow-hidden bg-[var(--navy)] text-white px-6 md:px-12 lg:px-32 py-16 border-t border-white/10">
+        <div class="relative z-10">
+            <div class="flex flex-wrap justify-end gap-10">
+
+                <div class="space-y-4 w-[calc(50%-1.25rem)] md:w-[calc(25%-1.875rem)]">
+                    <h3 class="text-sm font-semibold text-white tracking-wider uppercase">Taro Resto</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-white/60 hover:text-white transition duration-200 inline-flex items-center gap-2 hover:translate-x-1"><span class="w-1.5 h-1.5 bg-[var(--ocean-light)] rounded-full opacity-70"></span>About Taro</a></li>
+                        <li><a href="#" class="text-sm text-white/60 hover:text-white transition duration-200 inline-flex items-center gap-2 hover:translate-x-1"><span class="w-1.5 h-1.5 bg-[var(--ocean-light)] rounded-full opacity-70"></span>Our Story</a></li>
+                        <li><a href="#" class="text-sm text-white/60 hover:text-white transition duration-200 inline-flex items-center gap-2 hover:translate-x-1"><span class="w-1.5 h-1.5 bg-[var(--ocean-light)] rounded-full opacity-70"></span>Sustainability</a></li>
+                        <li><a href="#" class="text-sm text-white/60 hover:text-white transition duration-200 inline-flex items-center gap-2 hover:translate-x-1"><span class="w-1.5 h-1.5 bg-[var(--ocean-light)] rounded-full opacity-70"></span>Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4 w-[calc(50%-1.25rem)] md:w-[calc(25%-1.875rem)]">
+                    <h3 class="text-sm font-semibold text-white tracking-wider uppercase">Discover</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-white/60 hover:text-white transition duration-200 inline-flex items-center gap-2 hover:translate-x-1"><span class="w-1.5 h-1.5 bg-[var(--ocean-light)] rounded-full opacity-70"></span>Journal</a></li>
+                        <li><a href="#" class="text-sm text-white/60 hover:text-white transition duration-200 inline-flex items-center gap-2 hover:translate-x-1"><span class="w-1.5 h-1.5 bg-[var(--ocean-light)] rounded-full opacity-70"></span>News & Updates</a></li>
+                        <li><a href="#" class="text-sm text-white/60 hover:text-white transition duration-200 inline-flex items-center gap-2 hover:translate-x-1"><span class="w-1.5 h-1.5 bg-[var(--ocean-light)] rounded-full opacity-70"></span>Events</a></li>
+                        <li><a href="#" class="text-sm text-white/60 hover:text-white transition duration-200 inline-flex items-center gap-2 hover:translate-x-1"><span class="w-1.5 h-1.5 bg-[var(--ocean-light)] rounded-full opacity-70"></span>Chef's Specials</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4 w-[calc(50%-1.25rem)] md:w-[calc(25%-1.875rem)]">
+                    <h3 class="text-sm font-semibold text-white tracking-wider uppercase">Visit</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-white/60 hover:text-white transition duration-200 inline-flex items-center gap-2 hover:translate-x-1"><span class="w-1.5 h-1.5 bg-[var(--ocean-light)] rounded-full opacity-70"></span>Reservations</a></li>
+                        <li><a href="#" class="text-sm text-white/60 hover:text-white transition duration-200 inline-flex items-center gap-2 hover:translate-x-1"><span class="w-1.5 h-1.5 bg-[var(--ocean-light)] rounded-full opacity-70"></span>Private Dining</a></li>
+                        <li><a href="#" class="text-sm text-white/60 hover:text-white transition duration-200 inline-flex items-center gap-2 hover:translate-x-1"><span class="w-1.5 h-1.5 bg-[var(--ocean-light)] rounded-full opacity-70"></span>Catering</a></li>
+                        <li><a href="#" class="text-sm text-white/60 hover:text-white transition duration-200 inline-flex items-center gap-2 hover:translate-x-1"><span class="w-1.5 h-1.5 bg-[var(--ocean-light)] rounded-full opacity-70"></span>Location</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4 w-[calc(50%-1.25rem)] md:w-[calc(25%-1.875rem)]">
+                    <h3 class="text-sm font-semibold text-white tracking-wider uppercase">Connect</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-white/60 hover:text-white transition duration-200 inline-flex items-center gap-2 hover:translate-x-1"><span class="w-1.5 h-1.5 bg-[var(--ocean-light)] rounded-full opacity-70"></span>Instagram</a></li>
+                        <li><a href="#" class="text-sm text-white/60 hover:text-white transition duration-200 inline-flex items-center gap-2 hover:translate-x-1"><span class="w-1.5 h-1.5 bg-[var(--ocean-light)] rounded-full opacity-70"></span>Facebook</a></li>
+                        <li><a href="#" class="text-sm text-white/60 hover:text-white transition duration-200 inline-flex items-center gap-2 hover:translate-x-1"><span class="w-1.5 h-1.5 bg-[var(--ocean-light)] rounded-full opacity-70"></span>TikTok</a></li>
+                        <li><a href="#" class="text-sm text-white/60 hover:text-white transition duration-200 inline-flex items-center gap-2 hover:translate-x-1"><span class="w-1.5 h-1.5 bg-[var(--ocean-light)] rounded-full opacity-70"></span>Contact</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="mt-12 border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="space-y-2 text-center md:text-left">
+                    <p class="text-sm text-white/70">
+                        © 2026 Taro Resto. All rights reserved.
+                    </p>
+
+                    <p class="text-xs text-white/40 max-w-2xl leading-relaxed">
+                        Taro Resto is a fictional business created for demonstration and portfolio purposes.
+                        It does not represent or imply any real business, organization, or establishment.
+                        Any similarities to actual businesses, names, locations, services, or other entities
+                        are purely coincidental. All images used throughout this website are AI-generated
+                        and are used for demonstration purposes only.
+                    </p>
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <a href="#" class="text-sm text-white/60 hover:text-white transition duration-200">
+                        Privacy Policy
+                    </a>
+                    <a href="#" class="text-sm text-white/60 hover:text-white transition duration-200">
+                        Terms & Conditions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+  </body>
+
+</html>
